@@ -1,0 +1,31 @@
+{
+  "name": "trekking",
+  "version": "1.0.0",
+  "authors": [
+    "Ståle Undheim <staale@staale.org>"
+  ],
+  "description": "BMK åre trekkning",
+  "main": "index.html",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ember": "~1.1.2",
+    "bootstrap": "~3.0.2",
+    "font-awesome": "~4.0.3",
+    "console-polyfill": "~0.1.0"
+  },
+  "overrides": {
+    "font-awesome": {
+      "main": [
+        "fonts"
+      ]
+    }
+  }
+}

@@ -1,0 +1,38 @@
+<div class="jumbotron">
+    <div class="container">
+        <h1>Bryne Musikkkorps Åretrekkning</h1>
+
+        <h2>Oppsett</h2>
+    </div>
+</div>
+<form role="form">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-xs-12">
+                <h3>Farger</h3>
+                <ul class="nav nav-pills nav-stacked">
+                    {{#each item in colors}}
+                        <li>
+                            <a {{action toggle item.color}}>{{color-checker colorBinding="item.color" valuesBinding="model.colors"}} {{item.color.name}}</a>
+                        </li>
+                    {{/each}}
+                </ul>
+            </div>
+            <div class="col-md-6 col-xs-12">
+                <h3>Verdier</h3>
+
+                <div class="form-group">
+                    <label>Minimums verdi:</label>
+                    {{input valueBinding="model.min" class="form-control"}}
+                </div>
+                <div class="form-group">
+                    <label>Maximums verdi:</label>
+                    {{input valueBinding="model.max" class="form-control"}}
+                </div>
+            </div>
+        </div>
+        <ul class="pager">
+            <li class="next"><a {{action start}}>Start &rarr;</a></li>
+        </ul>
+    </div>
+</form>
