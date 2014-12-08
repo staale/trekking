@@ -1,18 +1,23 @@
 <div class="jumbotron">
     <div class="container">
-        <h1>Bryne Musikkkorps Åretrekkning</h1>
+        <div class="row">
+            <img src="bmk.gif" class="col-xs-3">
+            <h1 class="col-xs-9">
+                Loddtrekkning
+            </h1>
+            <h2 class="push-3 col-xs-9">Oppsett</h2>
+        </div>
 
-        <h2>Oppsett</h2>
     </div>
 </div>
 <form role="form">
     <div class="container">
-        <div class="row">
+        <div class="row" style="font-size: x-large">
             <div class="col-md-6 col-xs-12">
                 <h3>Farger</h3>
-                <ul class="nav nav-pills nav-stacked">
+                <ul class="nav nav-pills">
                     {{#each item in colors}}
-                        <li>
+                        <li class="col-xs-6">
                             <a {{action toggle item.color}}>{{color-checker colorBinding="item.color" valuesBinding="model.colors"}} {{item.color.name}}</a>
                         </li>
                     {{/each}}

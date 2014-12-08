@@ -1,7 +1,32 @@
-<p>play Template</p>
-<ul>
-{{#each selectedPicks}}
-    <li>{{color-checker colorBinding="color"}} {{color.name}} {{number}}</li>
-{{/each}}
-    {{lastPick.number}}
-</ul>
+<div class="play">
+    <div class="col-md-9 col-sm-12">
+        <h1>Siste trekkning</h1>
+        {{#view App.ScaledView}}
+            {{#if multiColor}}
+                {{#color-checker colorBinding="currentPick.color"}}
+                    {{currentPick.color.name}}
+                {{/color-checker}}
+            {{/if}}
+            {{currentPick.number}}
+        {{/view}}
+    </div>
+    <div class="col-md-3 col-sm-12">
+        <div class="panel" style="height: 400px; overflow-y: scroll">
+            <div class="panel-heading">
+                <h3 class="panel-title">Historikk</h3>
+            </div>
+            <div class="panel-body">
+                <ul>
+                    {{#each entry in history}}
+                        <li>{{#if multiColor}}
+                                {{#color-checker colorBinding="entry.color"}}
+                                    {{entry.color.name}}
+                                {{/color-checker}}
+                            {{/if}}
+                            {{entry.number}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

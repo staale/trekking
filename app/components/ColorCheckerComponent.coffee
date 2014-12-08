@@ -1,16 +1,38 @@
 module.exports = App.ColorCheckerComponent = Ember.Component.extend
   tagName: "i"
-  classNames: ["fa", "fa-2x"]
+  animate: 0
+  classNames: ["fa"]
   classNameBindings: ["checked:fa-check-circle-o:fa-circle-o"]
   attributeBindings: ["style"]
   color: null
+  oldColor: "#000000"
   values: []
   action: "toggle"
+  style: ""
+  effect: "bounceOut"
 
-  style: (() ->
-    "color: #{@get("color.color")}"
-  ).property("value")
+  didInsertElement: ->
+    @$().css("color", @get("color.color"))
 
-  checked: (() ->
+  keepOldColor: ( ->
+    @set("oldColor", @get("color.color"))
+  ).observesBefore("color")
+
+  styleAnimation: ( ->
+    @$().tween
+      color:
+        time: 0
+        start: @get("oldColor")
+        stop: @get("color.color")
+        duration: @get("animate")
+        effect: @get("effect")
+
+    $.play()
+
+  ).observes("color")
+
+
+
+  checked: ( ->
     @get("values").contains(@get("color"))
   ).property("color", "values.@each")

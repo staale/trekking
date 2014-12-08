@@ -17,7 +17,6 @@ module.exports = App.IndexController = Ember.ObjectController.extend
 
   actions:
     toggle: (color) ->
-      console.log("Toggling", color, @get("model.colors").contains(color))
       if @get("model.colors").contains(color)
         @get("model.colors").removeObject(color)
       else
@@ -29,3 +28,7 @@ module.exports = App.IndexController = Ember.ObjectController.extend
 
     setup: () ->
       @set("setup", true)
+
+    nextDraw: () ->
+      unless @get("setup")
+        @incrementProperty("model.pickNo")
